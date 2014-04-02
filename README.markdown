@@ -12,6 +12,7 @@ While it has useful functionality in a few different domains, it has a particula
 ### Highlights
 * Method swizzling
 * Collect/map an NSArray
+* Load nib-based views from other nibs with bindings and layout constraints intact [Wiki link](https://github.com/pivotal/PivotalCoreKit/wiki/Nib-loading-helpers)
 * Resize a UIImage with aspect fit or aspect fill
 * Simulate taps on UIButtons
 * Simulate UIGestureRecognizer recognition
@@ -25,7 +26,7 @@ While it has useful functionality in a few different domains, it has a particula
 PivotalCoreKit is split along framework lines, with separate Xcode projects for the Foundation, UIKit, and CoreLocation frameworks. Each project is then separated again out into sub-sections: Core, SpecHelper, and SpecHelperStubs. 
 
 **Core** methods are meant to be used anywhere they're useful, whether in specs or in the primary application.  
-**SpecHelper** extends built-in classes to make testing easier and more seemless.  
+**SpecHelper** extends built-in classes to make testing easier and more seamless.  
 **SpecHelperStubs** stub out (and replace) a class's functionality to allow a developer to more easily inspect its state.
 
 Here is a (hopefully exhaustive but inevitably out of date) list of PivotalCoreKit functionality, separated by framework/section:
@@ -52,11 +53,13 @@ Here is a (hopefully exhaustive but inevitably out of date) list of PivotalCoreK
 * UIKit
   * Core
     * Produce a UIBarButtonItem from a UIButton
+	* Load nib-based views from other nibs with bindings and layout constraints intact
+	  [Wiki link](https://github.com/pivotal/PivotalCoreKit/wiki/Nib-loading-helpers)
     * Resize a UIImage with aspect fill or aspect fit
     * Crop a UIImage or add rounded corners
     * Translating UIViews by deltas
     * Resizing UIViews with corner pinning
-    * Calculate accurate height from NSString and NSAttributedString drawing
+    * Calculate height from NSString and NSAttributedString drawing
   * SpecHelper
     * Simulate a tap on 
       * UIButton
@@ -123,7 +126,7 @@ it(@"webview should load example.com", ^{
 Without PivotalCoreKit's UIWebView stubs, the webView's NSURLRequest will be nil because the real UIWebView hasn't started actually making the request. A stubbed UIWebView updates the request property immediately.
 
 ## How do I install PivotalCoreKit
-* In a shell in the root of your project run: `git submodule add git@github.com:pivotal/PivotalCoreKit.git Externals/PivotalCoreKit`
+* In a shell in the root of your project run: `git submodule add https://github.com/pivotal/PivotalCoreKit.git Externals/PivotalCoreKit`
 * Add the PivotalCoreKit project(s) (Foundation.xcodeproj, UIKit.xcodeproj, or CoreLocation.xcodeproj) you need into your project for the appropriate target
 * In your application's Project Settings, under Build Phases, add the desired StaticLib to "Target Dependencies"
 * Add the corresponding binary to the Link Binary With Libraries section
@@ -131,7 +134,7 @@ Without PivotalCoreKit's UIWebView stubs, the webView's NSURLRequest will be nil
  * e.g. "$(SRCROOT)/Externals/PivotalCoreKit/path/to/specific/projectfolder/". 
 
 ### Example, adding -[UIButton tap] to a spec target
-* `git submodule add git@github.com:pivotal/PivotalCoreKit.git Externals/PivotalCoreKit`
+* `git submodule add https://github.com/pivotal/PivotalCoreKit.git Externals/PivotalCoreKit`
 * Right-click Specs folder in Xcode -> Add Files
 * Navigate into PivotalCoreKit/UIKit folder, select UIKit.xcodeproj and add.
 * In root project file, choose Specs target
