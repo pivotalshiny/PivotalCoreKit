@@ -2,6 +2,8 @@
 
 [![Build Status](https://travis-ci.org/pivotal/PivotalCoreKit.png?branch=master)](https://travis-ci.org/pivotal/PivotalCoreKit)
 
+[CHANGES](https://github.com/pivotal/PivotalCoreKit/blob/master/CHANGES.markdown)
+
 ## Why PivotalCoreKit
 PivotalCoreKit lets you keep creating beautiful apps without having to rewrite the same boilerplate code in every project.
 
